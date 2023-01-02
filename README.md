@@ -64,6 +64,7 @@ Things you may want to cover:
 
 - belongs_to :user
 - has_one    :order
+- has_one_attached :image
 
 ## orders テーブル
 
