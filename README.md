@@ -83,7 +83,6 @@ Things you may want to cover:
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | order         | references | null: false, foreign_key: true |
-| token         | integer    | null: false                    |
 | postal_code   | string     | null: false                    |
 | prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
