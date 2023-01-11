@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to :user
+  has_one_attached :image
 
   belongs_to :item_category
   belongs_to :item_condition
@@ -10,7 +11,7 @@ class Item < ApplicationRecord
   belongs_to :scheduled_delivery
 
   with_options presence: true do
-    validates :item_name, :item_info
+    validates :image, :item_name, :item_info
     validates :item_category, :item_condition, :shipping_fee, :prefecture, :scheduled_delivery
     validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
   end
