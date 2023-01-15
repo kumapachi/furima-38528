@@ -119,7 +119,7 @@ RSpec.describe Item, type: :model do
       it '価格に半角数字以外が含まれている場合は出品できない' do
         @item.price = '300a'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
       it 'userが紐付いていないと保存できない' do
         @item.user = nil
