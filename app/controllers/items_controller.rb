@@ -26,13 +26,13 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    unless user_signed_in? && current_user.id == @item.user_id
+    return if user_signed_in? && current_user.id == @item.user_id
+
     redirect_to root_path
-    end
   end
 
   def update
-    @item = Item.find(params[:id])   
+    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to item_path(item_params), method: :patch
     else
@@ -48,8 +48,8 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+    return if user_signed_in?
+
+    redirect_to action: :index
   end
 end
