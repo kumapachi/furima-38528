@@ -66,24 +66,24 @@ RSpec.describe OrderBuyer, type: :model do
       it '電話番号が12桁以上だと登録できない' do
         @order_buyer.phone_number = '123456789012'
         @order_buyer.valid?
-        expect(@order_buyer.errors.full_messages).to include("Phone number is invalid")
+        expect(@order_buyer.errors.full_messages).to include('Phone number is invalid')
       end
       it '電話番号が9桁以下だと登録できない' do
         @order_buyer.phone_number = '123456789'
         @order_buyer.valid?
-        expect(@order_buyer.errors.full_messages).to include("Phone number is too short")
+        expect(@order_buyer.errors.full_messages).to include('Phone number is too short')
       end
       it '電話番号に半角数字以外が含まれると登録できない' do
         @order_buyer.phone_number = '090-1234-5678'
         @order_buyer.valid?
-        expect(@order_buyer.errors.full_messages).to include("Phone number is invalid")
+        expect(@order_buyer.errors.full_messages).to include('Phone number is invalid')
       end
       it 'トークンが空だと登録できない' do
         @order_buyer.token = nil
         @order_buyer.valid?
         expect(@order_buyer.errors.full_messages).to include("Token can't be blank")
       end
-      # bundle exec rspec spec/models/order_buyer_spec.rb 
+      # bundle exec rspec spec/models/order_buyer_spec.rb
     end
   end
 end
