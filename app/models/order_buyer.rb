@@ -1,11 +1,13 @@
 class OrderBuyer
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :addresses, :building, :phone_number
+  attr_accessor :user_id, :item_id, :token, :postal_code, :prefecture_id, :city, :addresses, :building, :phone_number
 
   with_options presence: true do
     # orderモデルのバリデーション
     validates :user_id
     validates :item_id
+    # トークンのバリデーション
+    validates :token
     # buyerモデルのバリデーション
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Enter it as follows (e.g. 123-4567)"}
     validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
