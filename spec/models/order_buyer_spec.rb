@@ -83,7 +83,6 @@ RSpec.describe OrderBuyer, type: :model do
         @order_buyer.valid?
         expect(@order_buyer.errors.full_messages).to include("Token can't be blank")
       end
-      # bundle exec rspec spec/models/order_buyer_spec.rb
     end
   end
 end
