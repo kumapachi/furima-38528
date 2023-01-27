@@ -1,12 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe OrderBuyer, type: :model do
-  describe '寄付情報の保存' do
-    before do
-      user = FactoryBot.create(:user)
-      @order_buyer = FactoryBot.build(:order_buyer, user_id: user.id)
-    end
 
+  before do
+    @user = FactoryBot.create(:user)
+    @item = FactoryBot.create(:item)
+    @order_buyer = FactoryBot.build(:order_buyer, user_id: @user.id, item_id: @item.id)
+    sleep 0.001
+  end
+
+  describe '寄付情報の保存' do
     context '購入者情報が登録できるとき' do
       it 'すべての値が正しく入力されていれば登録できること' do
         expect(@order_buyer).to be_valid
