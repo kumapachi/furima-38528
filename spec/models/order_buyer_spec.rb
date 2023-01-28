@@ -6,7 +6,7 @@ RSpec.describe OrderBuyer, type: :model do
     @user = FactoryBot.create(:user)
     @item = FactoryBot.create(:item)
     @order_buyer = FactoryBot.build(:order_buyer, user_id: @user.id, item_id: @item.id)
-    sleep 0.001
+    sleep 0.005
   end
 
   describe '寄付情報の保存' do
